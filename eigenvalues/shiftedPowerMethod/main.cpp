@@ -8,16 +8,16 @@ void shiftedPowerMethod(double **A, double *vo, double *vf,
 {
 
     double **Ac;
-    double **Ai;
+
     matrixAlloc(Ac, n, n);
-    matrizAlloc(Ai, n, n);
+
     /* step uI */
     for (int i = 0; i < n; ++i)
         for (int j; j < n; ++j)
             if (i == j)
-                Ai[i][j] = A[i][j] - U;
+                Ac[i][j] = A[i][j] - U;
             else
-                Ai[i][j] = A[i][j];
+                Ac[i][j] = A[i][j];
     inversePowerMethod(Ac, vo, Lambda, n, eps);
     Lamb_f = Lambda + U;
 
