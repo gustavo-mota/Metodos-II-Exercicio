@@ -1,9 +1,8 @@
-#include <iostream>
-#include <math.h>
+#include "../headers/shiftedPowerMethod.h"
 using namespace std;
 
 void shiftedPowerMethod(double **A, double *vo, double *vf,
-                        double &lambda, const int n,
+                        double &Lambd, const int n,
                         const double eps, const int U)
 {
 
@@ -18,9 +17,11 @@ void shiftedPowerMethod(double **A, double *vo, double *vf,
                 Ac[i][j] = A[i][j] - U;
             else
                 Ac[i][j] = A[i][j];
-    inversePowerMethod(Ac, vo, Lambda, n, eps);
-    Lamb_f = Lambda + U;
 
+    inversePowerMethod(Ac, vo, Lambd, n, eps);
+    Lambd = Lambd + U;
+
+    matrixDealloc(Ac, n);
     assign(vf, vo, n);
 }
 

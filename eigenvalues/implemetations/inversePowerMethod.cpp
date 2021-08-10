@@ -1,5 +1,5 @@
-#include <iostream>
-#include <math.h>
+#include "../headers/inversePowerMethod.h"
+
 using namespace std;
 
 void inversePowerMethod(double **A, double *vo,
@@ -16,13 +16,13 @@ void inversePowerMethod(double **A, double *vo,
         l[i] = new double[n];
         u[i] = new double[n];
         for (int j = 0; j < n; ++j)
-            a[i][j] = A_[i][j];
+            a[i][j] = A[i][j];
     }
 
-    LU_Decomposition(a, l, u, n)
+    LU_Decomposition(a, l, u, n);
 
-        double lamb_old = 0.;
-    lamb_new = 1.;
+    double lamb_old = 0.;
+    double lamb_new = 1.;
 
     double *vnew = new double[n];
     assign(vnew, vo, n); /*step 4 */
@@ -44,10 +44,10 @@ void inversePowerMethod(double **A, double *vo,
 
         double *x = LUsolver(l, u, b, n);
         cout << "{" << x[0] << "," << x[1] << "," << x[2] << "}";
-        LUsolver(A, u, b, n)
+        LUsolver(A, u, b, n);
 
-            /* step 9*/
-            lamb_new = dotProduct(vold, vnew, n);
+        /* step 9*/
+        lamb_new = dotProduct(vold, vnew, n);
 
         for (int i = 0; i < n; ++i)
         {
@@ -60,7 +60,7 @@ void inversePowerMethod(double **A, double *vo,
         delete[] u;
         delete[] b;
         delete[] x;
-    } while (abs(lamb_new - lamb_old) / lamb_new > eplison);
+    } while (abs(lamb_new - lamb_old) / lamb_new > eps);
 
     lambda = 1 / lamb_new;
     assign(vo, vold, n);
