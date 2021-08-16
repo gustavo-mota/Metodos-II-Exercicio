@@ -1,8 +1,8 @@
 #include "../headers/shiftedPowerMethod.h"
 using namespace std;
 
-void shiftedPowerMethod(double **A, double *vo, double *vf,
-                        double &Lambd, const int n,
+void shiftedPowerMethod(double **A, double *vo,
+                        double &lambd, const int n,
                         const double eps, const int U)
 {
 
@@ -12,17 +12,16 @@ void shiftedPowerMethod(double **A, double *vo, double *vf,
 
     /* step uI */
     for (int i = 0; i < n; ++i)
-        for (int j; j < n; ++j)
+        for (int j = 0; j < n; ++j)
             if (i == j)
                 Ac[i][j] = A[i][j] - U;
             else
                 Ac[i][j] = A[i][j];
 
-    inversePowerMethod(Ac, vo, Lambd, n, eps);
-    Lambd = Lambd + U;
+    inversePowerMethod(Ac, vo, lambd, n, eps);
+    lambd = lambd + U;
 
     matrixDealloc(Ac, n);
-    assign(vf, vo, n);
 }
 /*
 int main(int argc, char const *argv[])
