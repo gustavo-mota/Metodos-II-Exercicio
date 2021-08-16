@@ -35,41 +35,34 @@ void inversePowerMethod(double **A, double *vo,
         /* step 6 */
         assign(vold, vnew, n);
         /* step 7 */
-        normalize(vnew, n);
-        /* step 8 */
-        double *b = new double[n];
-        b[0] = 1.;
-        b[1] = 6.;
-        b[2] = 4.;
+        normalize(vold, n);
+        /* step 8 */  
 
-        double *x = LUsolver(l, u, b, n);
-        cout << "{" << x[0] << "," << x[1] << "," << x[2] << "}";
-        LUsolver(A, u, b, n);
+        vnew = LUsolver(l, u, vold, n);
 
         /* step 9*/
         lamb_new = dotProduct(vold, vnew, n);
 
-        for (int i = 0; i < n; ++i)
-        {
-            delete[] a[i];
-            delete[] l[i];
-            delete[] u[i];
-        }
-        delete[] a;
-        delete[] l;
-        delete[] u;
-        delete[] b;
-        delete[] x;
     } while (abs(lamb_new - lamb_old) / lamb_new > eps);
 
     lambda = 1 / lamb_new;
     assign(vo, vold, n);
+    
+    for (int i = 0; i < n; ++i)
+    {
+        delete[] a[i];
+        delete[] l[i];
+        delete[] u[i];
+    }
+    delete[] a;
+    delete[] l;
+    delete[] u;
 
     delete[] vnew;
     delete[] vold;
 }
-
-int main(int argc, char const *)
+/*
+int main(int argc, char const *argv[])
 {
     const int n = 5;
 
@@ -105,3 +98,4 @@ int main(int argc, char const *)
 
     return 0;
 }
+*/

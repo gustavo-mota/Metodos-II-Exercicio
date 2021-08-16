@@ -92,7 +92,7 @@ double dotProduct(double *a, double *b, const int n)
         result_ += a[i] * b[i];
     return result_;
 }
-
+/*
 int main(int argc, char const *argv[])
 {
     const int n = 5;
@@ -119,3 +119,4 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+*/

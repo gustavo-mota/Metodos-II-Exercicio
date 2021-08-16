@@ -74,7 +74,7 @@ double *LUsolver(double **l, double **u, double *b, const int n)
     delete[] y;
     return x;
 }
-
+/*
 int main(int argc, char const *argv[])
 {
     const int n = 3;
@@ -117,3 +117,4 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+*/

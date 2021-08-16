@@ -3,35 +3,6 @@
 
 using namespace std;
 
-double norm(double *v, const int n)
-{
-    double norm = 0.;
-    for (int i = 0; i < n; ++i)
-        norm += v[i] * v[i];
-    return sqrt(norm);
-}
-
-void normalize(double *v, const int n)
-{
-    double norm_ = norm(v, n);
-    for (int i = 0; i < n; ++i)
-        v[i] = v[i] / norm_;
-}
-
-void assign(double *s, double *t, const int n)
-{
-    for (int i = 0; i < n; ++i)
-        s[i] = t[i];
-}
-
-double dotProduct(double *a, double *b, const int n)
-{
-    double result_ = 0;
-    for (int i = 0; i < n; i++)
-        result_ += a[i] * b[i];
-    return result_;
-}
-
 void powerMethod(double **A, double *vo, double &lamb_new, const int n, const double eplison)
 {
     double *vnew = new double[n];
@@ -64,7 +35,7 @@ void powerMethod(double **A, double *vo, double &lamb_new, const int n, const do
     delete[] vnew;
     delete[] vold;
 }
-
+/*
 int main(int argc, char const *argv[])
 {
     const int n = 5;
@@ -96,3 +67,4 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+*/

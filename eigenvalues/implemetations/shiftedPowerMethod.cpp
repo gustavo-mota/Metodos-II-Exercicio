@@ -24,7 +24,7 @@ void shiftedPowerMethod(double **A, double *vo, double *vf,
     matrixDealloc(Ac, n);
     assign(vf, vo, n);
 }
-
+/*
 int main(int argc, char const *argv[])
 {
     const int n = 5;
@@ -58,3 +58,4 @@ int main(int argc, char const *argv[])
 
     return 0;
 }
+*/
