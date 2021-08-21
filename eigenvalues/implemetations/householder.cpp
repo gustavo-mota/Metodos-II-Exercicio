@@ -1,5 +1,5 @@
 #include "../headers/householder.h"
-#include "../headers/matrix.h"
+using namespace std;
 
 double **houseHolder_(double **a, const int i, const int n)
 {
@@ -18,7 +18,7 @@ double **houseHolder_(double **a, const int i, const int n)
         w[k] = a[k][i];
 
     w_[i + 1] = norm(w, n);
-
+     
     for (int k = 0; k < n; ++k)
         N[k] = w[k] - w_[k];
 
@@ -48,6 +48,7 @@ double **houseHolder_(double **a, const int i, const int n)
                 h[k][j] = -2 * aux[k][j];
         }
 
+    //matrixPrint(h, n, n);
     matrixDealloc(n1, n);
     matrixDealloc(n1T, 1);
     matrixDealloc(aux, n);

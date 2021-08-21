@@ -1,3 +1,5 @@
+#ifndef MATRIX
+#define MATRIX
 #include <iostream>
 #include <math.h>
 #include <iomanip>
@@ -19,3 +21,4 @@ void normalize(double *a, const int n);
 void assign(double *s, double *t, const int n);
 
 double dotProduct(double *a, double *b, const int n);
+#endif
