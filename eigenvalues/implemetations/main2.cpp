@@ -38,6 +38,9 @@ int main(int argc, char const *argv[])
 
     double **h;
     double **tridiag = houseHolder(A, h, n);
+
+    cout << "H from houseHolder: \n";
+    matrixPrint(h, n, n);
     
     cout << "Tridiag: \n";
     matrixPrint(tridiag, n, n);
@@ -51,7 +54,7 @@ int main(int argc, char const *argv[])
     matrixPrint(p2, n, n);
 
     double **e = matrixMultiply(h, p2, n, n, n, n);
-    cout << "A Eigenvectors: \n";
+    cout << "A Eigenvectors by Tridiag: \n";
     matrixPrint(e, n, n);
 
 
